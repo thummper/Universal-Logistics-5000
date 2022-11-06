@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UniversalLogistics</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+
+        <header>
+            <div class="headerContainer">
+                <img src="#" alt="" class="headerImg">
+
+                <a href="#" class="navLink navLogo">
+                            <i class='bx bx-rocket'></i>
+                            <span class="navLogoName"> Universal Logistics </span>
+                </a>
+                
+
+
+
+
+
+                <div class="headerToggle">
+                    <i class="bx bx-menu" id="headerToggle"></i>
+                </div>
+            </div>
+        </header>
+
+
+        <main class="mainWrapper">
+            <!-- 2 cols are large screens, navbar on the left, main content on the right -->
+            <nav id="navbar">
+                <div class="navContainer">
+
+                        <a href="#" class="navLink navLogo">
+                            <i class='bx bx-rocket'></i>
+                            <span class="navLogoName"> Universal Logistics </span>
+                        </a>
+
+                    <div class="navList">
+
+                        <div class="navItems">
+
+                            <a asp-area="" asp-controller="Pages" asp-action="BuildingUse" class="navLink @(ViewContext.RouteData.Values["Action"].ToString() == "BuildingUse"?"active":"")">
+                                <i class='bx bx-home-alt-2 navIcon'></i>
+                                <span class="navName">Building Use</span>
+                            </a>
+
+                            <a asp-area="" asp-controller="Pages" asp-action="SupplyChain" class="navLink @(ViewContext.RouteData.Values["Action"].ToString() == "SupplyChain"?"active":"")">
+                                <i class='bx bx-package navIcon'></i>
+                                <span class="navName">Supply Chain</span>
+                            </a>
+
+
+                            <a asp-area="" asp-controller="Pages" asp-action="Consumption" class="navLink @(ViewContext.RouteData.Values["Action"].ToString() == "Consumption"?"active":"")">
+                                <i class='bx bx-coffee navIcon'></i>
+                                <span class="navName">Consumption</span>
+                            </a>
+
+
+
+                            <a asp-area="" asp-controller="Pages" asp-action="About" class="navLink @(ViewContext.RouteData.Values["Action"].ToString() == "About"?"active":"")">
+                                <i class='bx bx-info-circle navIcon'></i>
+                                <span class="navName">About</span>
+                            </a>
+
+                            <a asp-area="" asp-controller="Pages" asp-action="Settings" class="navLink @(ViewContext.RouteData.Values["Action"].ToString() == "Settings"?"active":"")">
+                                <i class='bx bx-cog navIcon'></i>
+                                <span class="navName">Settings</span>
+                            </a>
+
+
+                        </div>
+                        <a href="#" class="navLink navLogout">
+                            <i class='bx bx-log-out navIcon' ></i>
+                            <span class="navName">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <section class="mainSection">
+                @RenderBody()
+            </section>
+            <footer class="border-top footer text-muted">
+                <div class="container">
+                    &copy; 2022 - UniversalLogistics - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+
+
+
+
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

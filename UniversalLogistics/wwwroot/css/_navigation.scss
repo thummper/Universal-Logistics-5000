@@ -1,0 +1,425 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+
+$navSmallWidth: 64px;
+$navLargeWidth: 200px;
+
+
+
+$headerHeight: 80px;
+$compactWidth: 48px;
+
+
+
+$mainColor: #202529;
+$secondaryColor: #32383D;
+$tertiaryColor: #4C555C;
+$accentColor: #1BC6B4;
+
+$mainFont: white;
+
+
+
+
+
+
+$colorOne: #6923D0;
+$colorOneLight: #F4F0FA;
+$titleColor: #19181B;
+$textColor: #58555E;
+$textLight: #A5A1AA;
+$bodyColor: #F9F6FD;
+
+$bodyFont: "Poppins", sans-serif;
+$normalFont: 16px;
+$smallFont: 14px;
+$smallerFont: 12px;
+
+$fontMedium: 500;
+$fontSemibold: 600;
+
+@media screen and (min-width: 1024px) {
+    $normalFont: 18px;
+    $smallFont: 16px;
+    $smallerFont: 14px;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: $bodyFont;
+    font-size: $normalFont;
+    color: $textColor;
+
+    
+}
+
+main {
+    display: grid;
+    grid-template-columns: $navSmallWidth 1fr;
+    grid-template-rows: 1fr 50px;
+    height: 100%;
+}
+
+
+
+h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Header
+header {
+
+    width: 100%;
+    background-color: $mainColor;
+    box-shadow: 0 1px 0 rgba(22, 8, 43, .1);
+
+    z-index: 100;
+    height: $headerHeight;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    height: $headerHeight;
+    justify-content: space-between;
+}
+
+.headerImg {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.headerLogo {
+    color: $titleColor;
+    font-weight: $fontMedium;
+    display: none;
+}
+
+.headerSearch {
+    display: flex;
+    padding: 4px 8px;
+    background-color: $colorOneLight;
+    border-radius: 4px;
+}
+
+.headerInput {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: $colorOneLight;
+}
+
+.headerInput::placeholder {
+    font-family: $bodyFont;
+    color: $textColor;
+}
+
+.headerIcon, .headerToggle {
+    font-size: 24px;
+}
+
+.headerToggle {
+    color: $titleColor;
+    cursor: pointer;
+}
+
+
+// Navigation
+nav {
+    grid-column: 1 / 2;
+    position: fixed;
+    top: 0;
+
+    left: 0;
+    /*    left: -100%;*/
+    height: 100vh;
+    width: $navSmallWidth;
+    // padding: 12px 12px 48px;
+    background-color: $mainColor;
+    z-index: 0;
+    transition: .4s;
+}
+
+.mainSection {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex: 1 1 auto;
+    padding: 12px;
+    padding-top: 0;
+}
+footer {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.navContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.navContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    padding-top: 0;
+    overflow: auto;
+    scrollbar-width: none; //Mozilla
+}
+
+header .navLogo {
+    opacity: 1;
+    z-index: 10000;
+}
+
+nav .navLogo {
+    opacity: 0;
+    height: $headerHeight;
+}
+
+.navLogo {
+    font-weight: $fontSemibold;
+    // margin-bottom: 24px;
+    height: $headerHeight;
+    $iconMargin: 8px;
+    // padding: 0 0 0 calc($compactWidth);
+    i {
+        margin-right: $iconMargin;
+    }
+}
+
+.navList, .navItems {
+    display: grid;
+}
+
+.navList {
+    
+    // padding: 0 24px 0 24px;
+    row-gap: 16px;
+}
+
+.navItems {
+    row-gap: 14px;
+}
+
+.navSubtitle {
+    font-size: $normalFont;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(white, 0.5);
+}
+
+.navLink {
+
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    i {
+        width: 48px;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+
+
+
+.navLink:hover {
+    color: $accentColor;
+}
+
+
+
+.navIcon {
+    margin-right: 8px;
+}
+
+.navName {
+    font-size: $smallFont;
+    font-weight: $fontMedium;
+    white-space: nowrap;
+    opacity: 0;
+}
+
+.navLogout {
+    margin-top: 24px;
+}
+
+// Dropdown
+.navDropdown {
+    overflow: hidden;
+    max-height: 21px;
+    transition: .4s ease-in;
+}
+
+.navDropdownCollapse {
+    background-color: $colorOneLight;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.navDropdownContent {
+    display: grid;
+    row-gap: 6px;
+    padding: 8px 16px 8px 12px;
+}
+
+.navDropdownItem {
+    font-size: $smallerFont;
+    font-weight: $fontMedium;
+    color: $textColor;
+}
+
+.navDropdownItem:hover {
+    color: $accentColor;
+}
+
+.navDropdownIcon {
+    margin-left: auto;
+    transition: .4s;
+}
+
+
+
+
+// Show Collapse
+.navDropdown:hover {
+    max-height: 500px;
+}
+// Rotate Arrow Icon
+.navDropdown:hover .navDropdownIcon {
+    transform: rotate(180deg);
+}
+
+//Show menu
+.showMenu {
+    left: 0;
+}
+// Active Link
+.active {
+    color: $accentColor
+}
+
+// Navigation Media Queries
+
+
+
+@media screen and (min-width: 768px) {
+
+    main {
+
+        grid-template-columns: $navLargeWidth 1fr;
+        }
+
+    header .navLogo {
+        opacity: 0;
+    }
+
+
+        /*    header {
+        padding: 0 0 0 $compactWidth;
+    }*/
+
+        .headerContainer {
+            // height: calc($headerHeight + 6px);
+        }
+
+        .headerSearch {
+            width: 300px;
+            padding: 7px 10px;
+        }
+
+        .headerToggle {
+            display: none;
+        }
+
+        .headerLogo {
+            display: block;
+        }
+
+        .headerImg {
+            width: 40px;
+            height: 40px;
+            order: 1;
+        }
+
+        nav {
+            width: $navLargeWidth;
+            margin-top: 0;
+
+
+        }
+
+        .navItems {
+            row-gap: 18px;
+        }
+
+        .navIcon {
+            font-size: 15px;
+        }
+
+        .navName {
+            opacity: 1;
+        }
+
+        nav .navLogo {
+            opacity: 1;
+        }
+
+
+        .navLink {
+            i {
+                width: 20px;
+                font-size: 18px;
+                margin-right: 4px;
+            }
+        }
+
+        .navList {
+
+            .navLink {
+                /*padding: 12px;*/
+
+
+            }
+        }
+
+        // navLogoName,
+        // .navName,
+        // .navSubtitle,
+        // .navDropdownIcon{
+        //     opacity: 0;
+        //     transition: .3s;
+        // }
+        // nav:hover {
+        //     width: $navWidth;
+        //     .navLogoName,
+        //     .navName,
+        //     .navSubtitle,
+        //     .navDropdownIcon {
+        //         opacity: 1;
+        //     }
+        // }
+    }
